@@ -19,7 +19,8 @@ function searchName(name, limit) {
                     title: package['name'],
                     subtitle: package['summary'],
                     url: package['release_url'],
-                    badge: package['version']
+                    badge: package['version'],
+                    icon: 'python-icon.icns'
                 });
             } else {
                 found.push({
