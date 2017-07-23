@@ -16,10 +16,10 @@ function searchName(name, limit) {
             var package = getPackage(names[i]);
             if (package) {
                 found.push({
-                    title: package['info']['name'],
-                    subtitle: package['info']['summary'],
-                    url: package['info']['release_url'],
-                    badge: package['info']['version']
+                    title: package['name'],
+                    subtitle: package['summary'],
+                    url: package['release_url'],
+                    badge: package['version']
                 });
             } else {
                 found.push({
@@ -78,8 +78,8 @@ function downloadPackageJSON(name) {
     var result = HTTP.getJSON(URI);
 
     if (result.data != undefined) {
-        writePackageCacheFile(name, result.data);
-        return result.data;
+        writePackageCacheFile(name, result.data['info']);
+        return result.data['info'];
     } else {
         return false;
     }
